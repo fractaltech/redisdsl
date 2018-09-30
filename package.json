@@ -1,0 +1,26 @@
+{
+  "name": "redisdsl",
+  "version": "0.0.0",
+  "description": "DSL for working with Redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fractaltech/redisdsl.git"
+  },
+  "keywords": [
+    "redis",
+    "dsl"
+  ],
+  "author": "Kapil Verma <kapv89@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fractaltech/redisdsl/issues"
+  },
+  "homepage": "https://github.com/fractaltech/redisdsl#readme",
+  "dependencies": {
+    "redis": "^2.8.0"
+  }
+}

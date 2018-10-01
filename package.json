@@ -1,6 +1,6 @@
 {
   "name": "redisdsl",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "DSL for working with Redis",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "dsl"
   ],
   "author": "Kapil Verma <kapv89@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fractaltech/redisdsl/issues"
   },

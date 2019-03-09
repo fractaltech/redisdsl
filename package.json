@@ -4,7 +4,8 @@
   "description": "DSL for working with Redis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/**/*.js",
+    "build": "rm -rf lib && babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,14 @@
   "homepage": "https://github.com/fractaltech/redisdsl#readme",
   "dependencies": {
     "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "lodash": "^4.17.11",
+    "mock-require": "^3.0.3",
+    "sinon": "^7.2.7",
+    "tape": "^4.10.1"
   }
 }

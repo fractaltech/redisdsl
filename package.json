@@ -1,10 +1,10 @@
 {
   "name": "redisdsl",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "DSL for working with Redis",
   "main": "src/dsl.js",
   "scripts": {
-    "test": "tape test/**/*.js",
+    "test": "node test/main.js",
     "build": "rm -rf lib && babel src -d lib"
   },
   "repository": {
@@ -28,9 +28,9 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
     "lodash": "^4.17.11",
-    "mock-require": "^3.0.3",
-    "sinon": "^7.2.7",
     "tape": "^4.10.1"
   }
 }

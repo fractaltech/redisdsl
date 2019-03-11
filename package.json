@@ -16,7 +16,7 @@
     "dsl"
   ],
   "author": "Kapil Verma <kapv89@gmail.com>",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/fractaltech/redisdsl/issues"
   },

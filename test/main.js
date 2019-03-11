@@ -19,28 +19,24 @@ const log = (...args) => {
   });
 };
 
-tape('redis cmds', async (t) => {
-  t.plan(9);
-
-  t.ok(1 === 1/1, 'foo');
-  t.ok(1 === 1/1, 'bar');
-  t.ok(1 === 1/1, 'baz');
+tape('redis cmds', (t) => {
+  t.plan(11);
 
   const redisMock = {
     createClient: () => ({
-      _cache: new Map(),
+      _cache: {},
       get(key) {
-        return new Promise((resolve) => setTimeout(() => resolve(this._cache.get(key)), 9));
+        return new Promise((resolve) => setTimeout(() => resolve(key in this._cache ? this._cache[key] : null), 9));
       },
       set(key, val) {
         return new Promise((resolve) => setTimeout(() => {
-          this._cache.set(key, val);
+          this._cache[key] = val;
           resolve();
         }, 27));
       },
       del(key) {
         return new Promise((resolve) => setTimeout(() => {
-          this._cache.delete(key);
+          delete this._cache[key];
           resolve();
         }, 30));
       }
@@ -51,9 +47,7 @@ tape('redis cmds', async (t) => {
 
   mock('redis', redisMock);
 
-  const dsl = require('../lib')();
-
-  const {client, get, set, del} = dsl;
+  const {client, get, set, del} = require('../src')();
 
   t.ok(client instanceof Object);
   t.ok(get instanceof Function);
@@ -66,13 +60,21 @@ tape('redis cmds', async (t) => {
   t.ok(setSpy instanceof Object);
   t.ok(delSpy instanceof Object);
 
-  await set('foo', 'bar');
-
-  // t.ok((await get('foo')) === 'bar', 'set & get work');
-  // await del('foo');
-  // t.ok((await get('foo')) === null, 'del works');
-
-  // t.ok(getSpy.calledTwice, 'getSpy');
-  // t.ok(setSpy.calledOnce, 'setSpy');
-  // t.ok(delSpy.calledOnce, 'delSpy');
+  set('foo', 'bar').then(() => {
+    return get('foo');
+  }).then((res) => {
+    t.ok(res === 'bar', 'set & get work');
+  }).then(() => {
+    return del('foo');
+  }).then(() => {
+    return get('foo');
+  }).then((res) => {
+    t.ok(res === null, 'del works');
+  }).then(() => {
+    t.ok(getSpy.calledTwice, 'getSpy');
+    t.ok(setSpy.calledOnce, 'setSpy');
+    t.ok(delSpy.calledOnce, 'delSpy');
+  }).then(() => {
+    mock.stop('redis');
+  });
 });

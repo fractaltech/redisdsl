@@ -2,7 +2,7 @@
   "name": "redisdsl",
   "version": "0.0.1",
   "description": "DSL for working with Redis",
-  "main": "index.js",
+  "main": "src/dsl.js",
   "scripts": {
     "test": "tape test/**/*.js",
     "build": "rm -rf lib && babel src -d lib"

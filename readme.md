@@ -5,7 +5,7 @@
 `npm install --save redisdsl`
 
 #### [redis](https://redis.io/) functions provided as a dsl for [node.js](https://nodejs.org/en/).
-#### Version 1.0.0
+#### Version 1.0.1
 
 Usage:
 

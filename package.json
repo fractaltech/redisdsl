@@ -1,8 +1,8 @@
 {
   "name": "redisdsl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DSL for working with Redis",
-  "main": "src/dsl.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "node test/main.js",
     "build": "rm -rf lib && babel src -d lib"

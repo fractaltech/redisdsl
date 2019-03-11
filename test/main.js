@@ -1,5 +1,6 @@
 const tape = require('tape');
-const {client, get, set, del} = require('../src')();
+const config = require('./config');
+const {client, get, set, del} = require('../src')(config);
 
 tape('testing redis cmds', async (t) => {
   t.plan(2);

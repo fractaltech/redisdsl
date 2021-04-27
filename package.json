@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/fractaltech/redisdsl#readme",
   "dependencies": {
-    "redis": "^2.8.0"
+    "redis": "^3.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
